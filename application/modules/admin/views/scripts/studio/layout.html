@@ -1,0 +1,28 @@
+<form method="post" action="">
+<table class="tadmin">
+	<thead>
+		<tr>
+			<th>File</th>
+			<th>Content</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php foreach($this->layout as $el){ ?>
+		<tr>
+			<td><?php echo $el['name'] ?></td>
+			<td>
+				<textarea name="<?php echo $el['name'] ?>" cols="100" rows="10">
+				<?php echo $el['content'] ?>
+				</textarea>
+			</td>
+		</tr>		
+	<?php } ?>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2" style="text-align:left;"><input type="submit" value="  Save  " /></td>
+		</tr>
+	</tfoot>
+</table>
+<input type="hidden" name="saving" value="1" />
+</form>

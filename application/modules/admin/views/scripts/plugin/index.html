@@ -1,0 +1,94 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('span.modaddremove a').click(function(event){
+			var a=$(this).attr('rel');
+			var p=$(this).parent();
+			var href=$(this).attr('href');
+			
+			if(a=='uninstall'){
+				if(confirm('Are you sure you want to uninstall this plugin?')){
+					p.html('loading ..');
+					location.href=href;
+				}
+			}else{
+				p.html('loading ..');
+				location.href=href;
+			}
+			
+			event.preventDefault();
+		});
+	});
+	function pluginAddRemove(){
+		
+	}
+</script>
+<table class="tadmin">
+	<thead>
+		<tr>
+			<th><?php echo $this->translate->_('Plugin Name'); ?> </th>
+			<th width="60%"><?php echo $this->translate->_('Description'); ?></th>
+			<!--<th>Author</th>
+			<th>Email</th>
+			<th>URL</th>-->
+			<th width="80"></th>
+			<?php if ( $this->canDownload ): ?><th width="80"></th><?php endif; ?>
+			<?php if ( $this->canDelete ): ?><th width="80"></th><?php endif; ?>
+		</tr>
+	</thead>
+	<tbody>
+<?php foreach ( $this->paginator as $mname => $m ): ?>
+	<tr>
+		<td><?php echo $this->escape($m->name) ?></td>
+		<td><?php echo $this->escape($m->description) ?></td>
+		<!--<td><?php echo $this->escape($m->author) ?></td>
+		<td><?php echo $this->escape($m->authorEmail) ?></td>
+		<td><?php echo $this->escape($m->authorUrl) ?></td>-->
+		<td align="center">
+			<span class="modaddremove">
+			<?php 
+			if (is_array($this->installedplugin))
+			{
+				if(in_array($mname,$this->installedplugin)) {
+					echo '<a href="'.$this->url(array('action'=>'uninstall','mod'=>$mname)).'" rel="uninstall">uninstall</a>';
+				} else {
+					echo '<a href="'.$this->url(array('action'=>'install','mod'=>$mname)).'" rel="install">install</a>';
+				}
+			}
+			else
+			{
+				echo '<a href="'.$this->url(array('action'=>'install','mod'=>$mname)).'" rel="install">install</a>';
+			}
+			?></span>
+		</td>
+		<?php if ( $this->canDownload ): ?>
+		<td align="center">
+			<?php echo '<a href="'.$this->url(array('action'=>'download','mod'=>$mname)).'">download</a>'; ?>
+		</td>
+		<?php endif; ?>
+		<?php if ( $this->canDelete ): ?>
+		<td align="center">
+			<?php
+			if (is_array($this->installedplugin))
+			{
+				if(in_array($mname,$this->installedplugin)) {
+					echo '&nbsp;';
+				} else {
+					echo '<a href="'.$this->url(array('action'=>'delete','mod'=>$mname)).'" class="del">delete</a>';
+				}
+			}
+			else
+			{
+				echo '<a href="'.$this->url(array('action'=>'delete','mod'=>$mname)).'" class="del">delete</a>';
+			}
+			?>
+		</td>
+		<?php endif; ?>
+	</tr>
+<?php endforeach; ?>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="5"><?php echo $this->paginator ?></td>
+		</tr>
+	</tfoot>
+</table>

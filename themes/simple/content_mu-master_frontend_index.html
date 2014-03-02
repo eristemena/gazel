@@ -1,0 +1,41 @@
+<style type="text/css">
+	table.tbl td{
+		vertical-align:top;
+	}
+	table.tbl td.norm td{
+		vertical-align:middle;
+	}
+	h2.oo{
+		padding:0;
+		margin:15px 0 5px 0;
+	}
+	h1.oo{
+		padding:0;
+		margin:0 0;
+	}
+</style>
+<table width="100%" class="tbl">
+	<tr>
+		<td width="75%">
+			<h1 class="00">Welcome to <?php echo $this->config('sitename') ?></h1>
+			<p>A place where you can show off your work, share your thought and collaborate.</p>
+			<h2 class="oo">Fun</h2>
+			<p><img src="images/icons/smile.png" align="left" />
+			<?php echo $this->config('sitename') ?> allows you to do anything to your page, write an article, share events and news in a really easy way.
+			</p>
+			<div style="clear:both"></div>
+			<h2 class="oo">Syndicate</h2>
+			<p><img src="images/icons/rss.png" align="left" />
+			<?php echo $this->config('sitename') ?> allows your reader to subscribe to your article, news or events.
+			</p>
+			<div style="clear:both"></div>
+			<h2 class="oo">Community</h2>
+			<p><img src="images/icons/users.png" align="left" />
+			Share your thoughts with other <?php echo $this->config('sitename') ?> members and discuss anything, anytime.
+			</p>
+		</td>
+		<td class="norm">
+			<?php echo $this->render('frontend/index.html'); ?>
+		</td>
+	</tr>
+</table>

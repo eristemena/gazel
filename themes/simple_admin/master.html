@@ -1,0 +1,88 @@
+<?php
+	$this->doctype('XHTML1_STRICT');
+	
+	$this->headLink()->appendStylesheet($this->baseUrl('assets/js/dhtmlx/dhtmlxMenu/skins/dhtmlxmenu_dhx_blue.css'));
+	$this->headLink()->appendStylesheet($this->baseUrl('assets/css/calendar-mos.css'));
+	
+	$this->headTitle('Admin :: '.$this->config('sitename'));
+	
+	$this->headScript()->appendFile($this->baseUrl('assets/js/jquery-1.4.2.min.js'));
+	$this->headScript()->appendFile($this->baseUrl('assets/js/admin.js'));
+	$this->headScript()->appendFile($this->baseUrl('assets/js/dhtmlx/dhtmlxMenu/dhtmlxcommon.js'));
+	$this->headScript()->appendFile($this->baseUrl('assets/js/dhtmlx/dhtmlxMenu/dhtmlxmenu.js'));
+	$this->headScript()->appendFile($this->baseUrl('assets/js/calendar_mini.js'));
+	$this->headScript()->appendFile($this->baseUrl('assets/js/calendar-en.js'));
+	$this->headScript()->appendFile($this->baseUrl('assets/js/Xinha-0.96.1/XinhaCore.js?skin=silva'));
+?>
+<?php echo $this->docType(); ?>
+<html>
+	<head>
+		<base href="<?php echo $this->config('themeadminurl'); ?>/" />
+		<link href="css/admin.css" rel="stylesheet" type="text/css" />
+<?php echo $this->headLink() ?>
+<script language="javascript" type="text/javascript">
+	var menulink="<?php echo $this->gazelUrl(array('action'=>'menu','controller'=>'index','module'=>'admin','user'=>$this->config('mUser')),null,true)?>";
+	var deletelink="<?php echo $this->gazelUrl(array('action'=>'delete','user'=>$this->config('mUser')))?>";
+	var indexlink="<?php echo $this->gazelUrl(array('action'=>'index','user'=>$this->config('mUser')))?>";
+	var searchlink="<?php echo $this->gazelUrl(array('action'=>'search','user'=>$this->config('mUser')))?>";
+	var orderlink="<?php echo $this->gazelUrl(array('action'=>'order','user'=>$this->config('mUser')))?>";
+	var baseurl="<?php echo $this->baseUrl() ?>";
+	var _editor_url  = "<?php echo $this->baseUrl('assets/js/Xinha-0.96.1') ?>";
+	var _editor_lang = "en";
+</script>
+<?php echo $this->headScript()?>
+<script language="javascript" type="text/javascript">
+	/** xinha **/
+	var xinha_plugins =
+	[
+	 'ImageManager'
+	];
+	
+	function xinha_init(){
+	  if(!Xinha.loadPlugins(xinha_plugins, xinha_init)) return;
+		
+		var xinha_editors=[];
+	  $('textarea.richeditor').each(function(){
+	  	xinha_editors[xinha_editors.length]=$(this).attr('name');
+	  });
+	  
+	  var xinha_config = new Xinha.Config();
+		
+	  xinha_editors = Xinha.makeEditors(xinha_editors, xinha_config, xinha_plugins);
+		
+	  Xinha.startEditors(xinha_editors);
+	}
+	$(document).ready(function(){
+		$('input.date').each(function(i){
+			$(this).after('<input type="button" value="..." onClick="return showCalendar(\''+$(this).attr('id')+'\', \'dd-mm-y\');" />');
+		});
+		
+		xinha_init();
+	});
+</script>
+<?php echo $this->headTitle(); ?>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="nav">
+				<div id="view_website"><a href="<?php echo $this->config()->baseurl ?>" target="_blank">View the website</a></div>
+			</div>
+			<div id="menu"></div>
+			<div style="clear:both" class="lb"></div>
+			<div id="content">
+				<h2><?php echo $this->moduletitle; ?></h2>
+				<?php if ( is_array($this->submenu) ): ?>
+				<div id="mmenu">
+					<ul>
+						<?php foreach ( $this->submenu as $sm ): ?>
+						<li <?php if($sm['li-class']) echo 'class="'.$sm['li-class'].'"'; ?>><a href="<?php echo $sm['url'] ?>"><?php echo $sm['title'] ?></a></li>
+						<?php endforeach; ?>
+					</ul>
+					<div style="clear:both"></div>
+				</div>
+				<?php endif; ?>
+				<?php echo $this->layout()->content ?>
+			</div>
+		</div>
+	</body>
+</html>

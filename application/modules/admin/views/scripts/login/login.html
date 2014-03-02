@@ -1,0 +1,30 @@
+<?php
+
+	$translate=$this->translate;
+
+?>
+
+<h1>
+	<?php
+
+		echo $translate->_("login");
+
+	?>
+</h1>
+<div id="login" class="box_theme_login_block">
+	<div class="lt">
+		<div class="rt">
+			<div class="rb">
+				<div class="lb">
+					<div class="content">
+						<?php echo $this->form ?>
+						<a class="btn_gray" onclick="document.forms['login_form'].submit(); return false;" onmousedown="return false;" href="#"><span class="left">Login</span></a>
+						<div style="clear:both"></div>
+						<div class="error"><?php echo $this->escape($this->err) ?></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

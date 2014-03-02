@@ -1,0 +1,7 @@
+<?php if (count($this->listpage)>0): ?>
+<ul>
+	<?php foreach ( $this->listpage as $val ): ?>
+	<li><a href="<?php echo $this->url(array('alias' => $val['page_alias'],'user' => $this->muUser),'mupage',true) ?>"><?php echo $this->escape($val['page_title']) ?></a></li>
+	<?php endforeach; ?>
+</ul>
+<?php endif; ?>

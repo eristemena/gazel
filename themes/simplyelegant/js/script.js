@@ -1,0 +1,11 @@
+$(document).ready(function(){
+	$('input#search_q').focus(function(){
+		if($(this).val()=='search'){
+			$(this).val('');
+		}
+	}).blur(function(){
+		if($(this).val().length==0){
+			$(this).val('search');
+		}
+	});
+});

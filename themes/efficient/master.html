@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<base href="<?php echo $this->config('themeurl'); ?>/" />
+	<title><?php echo $this->config('sitename') ?></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<style type="text/css">
+	<!--
+	.style1 {
+		font-family: Geneva, Arial, Helvetica, sans-serif;
+		color: #005079;
+		font-weight: bold;
+	}
+	.style3 {color: #996600}
+	.style5 {
+		font-size: 14px;
+		color: #FF9900;
+	}
+	-->
+	</style>
+</head>
+<body>
+	<div id="header">
+		<?php echo $this->pageNav('main',array('style'=>'ul-li-a-span','ul-attribs'=>array('class'=>'nav'),'a-active'=>array('class'=>'hover'))) ?>
+		<a href="<?php echo $this->config('baseurl') ?>"><?php echo $this->logoHeader() ?></a>
+	</div>
+	<div id="body">
+		<div id="side_left">
+		  <?php echo $this->pageNav('left') ?>
+			<?php echo $this->widget('left') ?>
+		</div>
+		<div id="side_content">
+			<h2><?php if ( $this->page['page_alias']!='home' ) echo $this->page['page_title']; ?></h2>
+		  <?php echo $this->layout()->content ?>
+		  <br class="spacer" />
+		</div>
+		<div id="side_right">
+		  <?php echo $this->pageNav('right') ?>
+			<?php echo $this->widget('right') ?>
+		</div>
+		<br class="spacer" />
+	</div>
+	<div id="footerMain">
+	  <div id="footer"> 
+	    <div class="footnav"><?php echo $this->pageNav('footer',array('style'=>'a-|')) ?></div>
+	    <p class="copyright">Copyright &copy; <?php echo $this->config('sitename') ?>.</p>
+	  </div>
+	</div>
+</body>
+</html>

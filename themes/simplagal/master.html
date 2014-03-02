@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<base href="<?php echo $this->config('themeurl'); ?>/" />
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title><?php echo $this->config('sitename') ?></title>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+	<div id="top_menu">
+		<?php 
+		echo $this->pageNav('main',array(
+			'style'=>'ul-li-a',
+			'ul-attribs' => array('class'=>'menu'),
+			'a-attribs' => array('class'=>'nav')
+		));
+		?>
+	</div>
+	<div id="main_content">
+		<div id="top_banner">
+	    <a href="<?php echo $this->config('baseurl') ?>"><?php echo $this->logoHeader() ?></a>
+		</div>
+		<div id="page_content_left">
+	    <?php echo $this->pageNav('left') ?>
+			<?php echo $this->widget('left') ?>
+		</div>
+		<div id="page_content_center">
+			<h2><?php if ( $this->page['page_alias']!='home' ) echo $this->page['page_title']; ?></h2>
+			<?php echo $this->layout()->content ?>
+		</div>
+		<div id="page_content_right">
+	    <?php echo $this->pageNav('right') ?>
+			<?php echo $this->widget('right') ?>
+		</div>
+		<div id="page_bottom"></div>
+	</div>
+	<div id="footer">
+		<div id="footer_content">
+			<div id="copyrights">Copyright &copy; <?php echo $this->config('sitename') ?></div>
+			<div>
+				<?php echo $this->pageNav('footer',array('style'=>'ul-li-a-span','ul-attribs'=>array('class'=>'footer_menu'),'a-attribs'=>array('class'=>'nav2'))) ?>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

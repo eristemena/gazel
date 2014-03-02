@@ -1,0 +1,9 @@
+<h2><?php echo $this->escape($this->event['event_title']) ?></h2>
+<?php echo("Start from : ");?>
+<small><?php echo $this->date()->mysqldate2web($this->event['event_date_from'],'dd MMM yyyy') ?></small>
+<?php echo("to : ");?>
+<small><?php echo $this->date()->mysqldate2web($this->event['event_date_to'],'dd MMM yyyy') ?></small><br>
+<?php echo("Location : ");?>
+<?php echo $this->escape($this->event['event_location']) ?>
+<br>
+<div class="event_content"><?php echo $this->event['event_content'] ?></div>

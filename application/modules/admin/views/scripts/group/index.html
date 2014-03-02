@@ -1,0 +1,35 @@
+<table class="tadmin">
+	<thead>
+		<tr>
+			<th width="5" class="cb"><input type="checkbox" id="cbcall" /></th>
+			<th width="170">Group Name</th>
+			<th>Desc</th>
+			<th width="25">ACL</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php if ( count($this->paginator)>0 ): ?>
+		<?php foreach ( $this->paginator as $k=>$n ): ?>
+		<tr>
+			<td><input type="checkbox" name="cb[]" value="<?php echo $n['admingroup_id'] ?>" /></td>
+			<td><a href="<?php echo $this->admin()->editLink($n['admingroup_id']) ?>"><?php echo $this->escape($n['admingroup_name']) ?></a></td>
+			<td><?php echo $this->escape($n['admingroup_desc']) ?></td>
+			<td>
+				<?php if ($n['admingroup_name']!='admin'): ?>
+				<a href="<?php echo $this->url(array('action'=>'acl','controller'=>'group','id'=>$n['admingroup_id'])) ?>">edit</a>
+				<?php endif; ?>
+			</td>
+		</tr>
+		<?php endforeach; ?>
+	<?php else: ?>
+		<tr>
+			<td colspan="4">No data</td>
+		</tr>
+	<?php endif; ?>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="4"><?php echo $this->paginator ?></td>
+		</tr>
+	</tfoot>
+</table>

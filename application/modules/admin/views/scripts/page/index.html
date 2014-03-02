@@ -1,0 +1,137 @@
+<script type="text/javascript">
+function makeDefault(){
+	var n=0;var c;
+	$('input[name="cb[]"]').each(function(){
+		if ($(this).is(':checked')){
+			n=n+1;
+			c=$(this).val();
+		}
+	});
+	if ( n>1 ){
+		alert('You can only make one page as default');
+		return;
+	}else if(n==0){
+		alert('You need to choose which page you want to make as default');
+		return;
+	}
+	location.href="<?php echo $this->url(array('action'=>'makedefault')) ?>?id="+c;
+}
+function saveOrder(){
+	var ids=[];var vals=[];
+	$("input.order").each(function(){
+		ids[ids.length]=$(this).attr('log');
+		vals[vals.length]=$(this).val();
+	});
+	$.ajax({
+		url:"<?php echo $this->url(array('action'=>'reorder')) ?>",
+		type:'post',
+		data:'ids='+ids+'&vals='+vals,
+		success:function(data){
+			location.href="<?php echo $this->url(array('action'=>'index')); ?>";
+		}
+	})
+}
+function reorder(id,order,to){
+	$.ajax({
+		url:"<?php echo $this->url(array('action'=>'reorder')) ?>",
+		type:'post',
+		data:'id='+id+'&order='+order+'&to='+to,
+		success:function(data){
+			location.href="<?php echo $this->url(array('action'=>'index')); ?>";
+		}
+	})
+}
+$(document).ready(function(){
+	$("input.order").keypress(function (e) {
+		if(e.which==13){
+			saveOrder();
+		}
+	})
+});
+</script>
+<?php
+		//for translate
+		$translate= Zend_Registry::get('translate');	
+		//
+	
+
+?>
+
+<table class="tadmin">
+	<thead>
+		<tr>
+			<th width="5" class="cb"><input type="checkbox" id="cbcall" /></th>
+			<?php echo $this->admin()->th("page_title",$translate->_('Title')) ?>
+			<?php echo $this->admin()->th("page_alias",$translate->_('Alias')) ?>
+			<?php echo $this->admin()->th("page_default",$translate->_('Default')) ?>
+			<?php echo $this->admin()->th("page_type",$translate->_('Type')) ?>
+			<?php echo $this->admin()->th("section_desc",$translate->_('Section')) ?>
+			<?php echo $this->admin()->th("page_order",$translate->_('Order')) ?>
+			<?php echo $this->admin()->th("page_published",$translate->_('Publish')) ?>
+			<?php echo $this->admin()->th("page_crtdon",$translate->_('Created On')) ?>
+			<?php echo $this->admin()->th("page_admin_crtdby",$translate->_('Created By')) ?>
+			<?php echo $this->admin()->th("page_edtdon",$translate->_('Edited On')) ?>
+			<?php echo $this->admin()->th("page_admin_edtdby",$translate->_('Edited By')) ?>
+		</tr>
+	</thead>
+	<tbody>
+	<?php if ( count($this->paginator)>0 ): ?>
+		<?php
+		$numdata=$this->paginator->getCurrentItemCount();
+		$ordering=$this->admin()->getOrdering();
+		
+		foreach ( $this->paginator as $k => $n ): 
+		?>
+		<tr>
+			<td><input type="checkbox" name="cb[]" value="<?php echo $n['page_id'] ?>" /></td>
+			<td><a href="<?php echo $this->admin()->editLink($n['page_id']) ?>"><?php echo $this->escape($n['page_title']) ?></a></td>
+			<td><?php echo $this->escape($n['page_alias']) ?></td>
+			<td><?php echo ($n['page_default']=='y') ? 'default':''; ?></td>
+			<td><?php echo ucfirst($n['page_type']) ?></td>
+			<td><?php echo $this->escape($n['section_desc']) ?></td>
+			<td class="order">
+				<?php
+					if ( in_array($ordering['id'],array('page_order','section_desc')) )
+					{
+						$disabledordering='';
+						$orderup='<a title="Move Up" onClick="reorder('.$n['page_id'].','.$n['page_order'].',\'up\')" href="#reorder"><img border="0" src="'.$this->baseUrl('assets/images/uparrow.png').'" /></a>';
+						$orderdown='<a title="Move Down" onClick="reorder('.$n['page_id'].','.$n['page_order'].',\'down\')" href="#reorder"><img border="0" src="'.$this->baseUrl('assets/images/downarrow.png').'" /></a>';
+						if ( $k>0 ) {
+							$prevdata=$this->paginator->getItem($k);
+						}
+						if ( $k<$numdata-1 ) {
+							$nextdata=$this->paginator->getItem($k+2);
+						}
+				?>
+				<span><?php echo ($k>0 && $n['section_id']==$prevdata['section_id']) ? $orderup : '&nbsp;'; ?></span>
+				<span><?php echo ($k<$numdata-1 && $n['section_id']==$nextdata['section_id']) ? $orderdown : '&nbsp;' ?></span>
+				<?php
+					}
+					else
+					{
+						$disabledordering='disabled="disabled"';
+						?>
+				<span></span><span></span>
+						<?php
+					}
+				?>
+				<input type="text" size="3" log="<?php echo $n['page_id'] ?>" name="order[<?php echo $n['page_id'] ?>]" value="<?php echo $n['page_order'] ?>" class="inp order" <?php echo $disabledordering ?> />
+			</td>
+			<td align="center"><a href="<?php echo $this->url(array('action'=>'togglepublished','id'=>$n['page_id'],'p'=>$n['page_published'])) ?>"><?php echo ($n['page_published']=='y') ? 'Yes' : 'No'; ?></a></td>
+			<td><?php echo $this->date()->mysqldatetime2web($n['page_crtdon']) ?></td>
+			<td><?php echo $this->escape($n['crtdby']) ?></td>
+			<td><?php echo $this->escape($n['page_edtdon']) ?></td>
+			<td><?php echo $this->escape($n['edtdby']) ?></td>
+		</tr>
+		<?php
+		$prev_sectionid=$n['section_id'];
+		endforeach; 
+		?>
+	<?php endif; ?>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td><?php echo $this->paginator ?></td>
+		</tr>
+	</tfoot>
+</table>

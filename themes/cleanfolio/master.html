@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<base href="<?php echo $this->config('themeurl'); ?>/" />
+	<title><?php echo $this->config('sitename') ?></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+<div class="main">
+  <div class="header">
+    <div class="logo"><a href="<?php echo $this->config('baseurl') ?>"><?php echo $this->logoHeader() ?></a></div>
+    <div class="menu">
+      <div>
+        <?php echo $this->pageNav('main') ?>
+      </div>
+    </div>
+    <div class="about">
+      <div class="left">
+        <h1><?php if ( $this->page['page_alias']!='home' ) echo $this->page['page_title']; ?></h1>
+      </div>
+      <div class="right">
+        <p></p>
+      </div>
+    </div>
+    <div class="columns_a">
+      <div class="all_a">
+      	<div class="left_a">
+      		<?php echo $this->pageNav('left') ?>
+          <?php echo $this->widget('left') ?>
+      	</div>
+        <div class="content_a">
+          <?php echo $this->layout()->content ?>
+        </div>
+        <div class="right_a">
+          <?php echo $this->pageNav('right') ?>
+          <?php echo $this->widget('right') ?>
+        </div>
+        <div align="left"></div>
+      </div>
+      <div class="all_b"> </div>
+    </div>
+    <div class="footer">
+      <div class="l">© Copyright <?php echo $this->config('sitename') ?></div>
+      <div class="l">
+        <div align="right"><?php echo $this->pageNav('footer',array('style'=>'a-|')) ?></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

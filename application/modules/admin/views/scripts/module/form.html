@@ -1,0 +1,11 @@
+<?php
+if ( is_array($this->errors) && count($this->errors)>0 )
+{
+	echo '<ul>';
+	foreach ( $this->errors as $err ){
+		echo '<li>'.$this->escape($err).'</li>';
+	}
+	echo '</ul>';
+}
+?>
+<?php echo $this->form ?>

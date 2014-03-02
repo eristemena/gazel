@@ -1,0 +1,22 @@
+<style type="text/css">
+	div.guestbook_from{
+		font-weight:bold;
+	}
+</style>
+
+<table>
+<?php foreach ( $this->paginator as $r ): ?>
+	<tr>
+		<td>
+			<div class="guestbook_from"><?php echo $this->escape($r['guestbook_name']) ?> (<?php echo $r['guestbook_email'] ?>)</div>
+			<?php 
+			require_once "Zend/Filter/StripTags.php";
+			$filter=new Zend_Filter_StripTags(array(
+				'allowTags' => array('p','h1','h2','h3','br','b','strong')
+			));
+			echo $filter->filter($r['guestbook_msg']) 
+			?>
+		</td>
+	</tr>
+<?php endforeach; ?>
+</table>

@@ -1,0 +1,20 @@
+<style type="text/css">
+	table.product{
+		border-collapse:collapse;
+	}
+	table.product td{
+		vertical-align:top;
+	}
+</style>
+<?php foreach ( $this->paginator as $product ) : ?>
+<table class="product">
+	<tr>
+		<td colspan="2"><h3><?php echo $product['product_name'] ?></h3></td>
+	</tr>
+	<tr>
+		<td width="100"><img src="<?php echo $this->dimageUrl('light-product',100,100,$product['product_id'],'jpg') ?>" /></td>
+		<td><?php echo $product['product_desc'] ?></td>
+	</tr>
+</table>
+<?php endforeach; ?>
+<?php echo $this->paginator ?>

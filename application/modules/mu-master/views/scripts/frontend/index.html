@@ -1,0 +1,133 @@
+<style type="text/css">
+	.regbox{
+		width:540px;
+		height:360px;
+		padding:10px;
+		background-color:#FDFDFD;
+		border:1px solid #CCCCCC;
+	}
+	input.inp{
+		background-color:#FBFBFB;
+		border:1px solid #E5E5E5;
+		padding:5px 2px;
+		font-size:20px;
+		font-weight:bold;
+		width:345px;
+	}
+	input.sbm{
+		padding:6px 30px;
+	}
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('form#reg').submit(function(){
+			var url=$(this).attr('action');
+			var data=$(this).serialize();
+			var frm=$(this);
+			$.ajax({
+				url:url,
+				data:data,
+				dataType:'json',
+				type:'post',
+				beforeSend:function(){
+					$('#regform').hide();
+					$('#regloader').show();
+				},
+				success:function(json){
+					if(json.stat=='failed'){
+						$('#regform').show();$('#regloader').hide();
+						alert(json.msg);
+						$('form#reg input[name="'+json.focus+'"]').focus();
+					}else if(json.stat=='success'){
+						setTimeout(function(){$('#loadermsg').text('You are passed. Now creating your website')},1000);
+						setTimeout(function(){
+							$('#regloader').hide();
+							$('#regresult_website').html('<a href="'+json.website+'">'+json.website+'</a>');
+							$('#regresult_admin').html('<a href="'+json.website+'/admin">'+json.website+'/admin</a>');
+							$('#regresult_username span').html(json.username);
+							$('#regresult_password span').html(json.password);
+							$('#regresult').show();
+						},2000);
+					}
+				}
+			});
+			return false;
+		});
+	});
+</script>
+
+<div id="regloader" class="regbox" style="display:none">
+	<img src="images/loader.gif" /><div id="loadermsg" style="margin-left:5px">Verifying your data ...</div>
+</div>
+<div id="regform" class="regbox">
+	<h2 style="padding:0;margin:0 0 10px 0;">Sign Up Today</h2>
+	<form id="reg" method="post" action="<?php echo $this->url(array('act'=>'register')) ?>">
+		<input type="hidden" name="a" value="register" />
+		<table class="form">
+			<tr>
+				<td colspan="2">Full Name</td>
+			</tr>
+			<tr>
+				<td>
+					<input class="inp" name="fullname" type="text" />
+				</td>
+				<td>
+					
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">Username</td>
+			</tr>
+			<tr>
+				<td>
+					<input class="inp" name="username" type="text" value="<?php echo $this->escape($_GET['username']) ?>" />
+				</td>
+				<td style="font-weight:bold;font-size:17px;">
+					.<?php echo $this->config()->configinstance->mu->domain ?>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">Email</td>
+			</tr>
+			<tr>
+				<td>
+					<input class="inp" name="email" type="text" />
+				</td>
+				<td>
+					
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">Password</td>
+			</tr>
+			<tr>
+				<td>
+					<input class="inp" name="password" type="password" />
+				</td>
+				<td>
+					
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="submit" value="register" class="sbm" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>
+<div id="regresult" class="regbox" style="display:none">
+	<p>Congrats. You can now access your website here:</p>
+	<div id="regresult_website" style="padding:4px;background-color:#ffffff;font-weight:bold;">
+		<a href="http://eristemena.0prek.com">http://eristemena.0prek.com</a>
+	</div>
+	<p>To administrate it, go to administration page below,</p>
+	<div id="regresult_admin" style="padding:4px;background-color:#ffffff;font-weight:bold;">
+		<a href="http://eristemena.0prek.com/admin">http://eristemena.0prek.com/admin</a>
+	</div>
+	<p>Log in using below username/password</p>
+	<div style="padding:4px;background-color:#ffffff;font-weight:normal;">
+		<div id="regresult_username"><strong>Username: </strong><span>eristemena</span></div>
+		<div id="regresult_password"><strong>Password: </strong><span>mypassword</span></div>
+	</div>
+</div>

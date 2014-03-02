@@ -1,0 +1,36 @@
+<table class="tadmin">
+	<thead>
+		<tr>
+			<?php echo $this->admin()->th("module_name","Module") ?>
+			<?php echo $this->admin()->th("module_title","Title") ?>
+			<th style="width:100px;">&nbsp;</th>
+			<th style="width:100px;">&nbsp;</th>
+			<th style="width:100px;">&nbsp;</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php if ( count($this->paginator)>0 ): ?>
+		<?php
+		$numdata=$this->paginator->getCurrentItemCount();
+		
+		foreach ( $this->paginator as $k => $n ): 
+		?>
+		<tr>
+			<td><?php echo $this->escape($n['module_name']) ?></td>
+			<td><?php echo $this->escape($n['module_title']) ?></td>
+			<td><a href="<?php echo $this->url(array('action' => 'label','modid' => $n['module_id'])) ?>">Edit Label</a></td>
+			<td><a href="<?php echo $this->url(array('action' => 'field','modid' => $n['module_id'])) ?>">Edit Field</a></td>
+			<td><a href="<?php echo $this->url(array('action' => 'layout','modid' => $n['module_id'])) ?>">Edit Layout</a></td>
+		</tr>
+		<?php
+		$prev_sectionid=$n['section_id'];
+		endforeach; 
+		?>
+	<?php endif; ?>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td><?php echo $this->paginator ?></td>
+		</tr>
+	</tfoot>
+</table>

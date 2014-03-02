@@ -1,0 +1,6 @@
+<h3><?php echo $this->escape($this->article['article_title']) ?></h3>
+<small><?php echo $this->date()->mysqldate2web($this->article['article_date'],'dd MMM yyyy') ?></small><br>
+<?php echo("Writen by  ");?>
+<?php echo $this->escape($this->article['article_writer']) ?>
+<br>
+<div class="article_content"><?php echo $this->article['article_content'] ?></div>

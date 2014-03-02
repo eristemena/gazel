@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<base href="<?php echo $this->config('themeurl'); ?>/" />
+	<title><?php echo $this->config('sitename') ?></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+<div class="main">
+  <div class="header">
+    <div class="logo"><a href="<?php echo $this->config('baseurl') ?>"><?php echo $this->logoHeader() ?></a></div>
+    <div class="search">
+      <form method="get" id="form_search" action="<?php echo $this->gazelUrl(array(),'search',true) ?>">
+        <label> <span>
+          <input name="keyword" type="text" class="text" id="search_q" value="search" />
+          </span>
+          <input type="image" name="search_b" id="search_b" src="images/search_but.gif" class="button" />
+        </label>
+      </form>
+    </div>
+    <div class="menu">
+      <?php echo $this->pageNav('main',array('style'=>'ul-li-a-span')) ?>
+    </div>
+    <div class="clr"></div>
+  </div>
+  <div class="slider_bg">
+    <div class="slider_t">
+      <div class="slider_b small">
+        <div class="title_text">
+          <h2><?php if ( $this->page['page_alias']!='home' ) echo $this->page['page_title']; else echo 'Welcome' ?></h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="left">
+      <div class="box no_margin">
+        <div class="box_t">
+          <div class="box_b">
+            <h2>Menu</h2>
+            <?php echo $this->pageNav('left') ?>
+          </div>
+        </div>
+      </div>
+      <div class="clr"></div>
+      <?php echo $this->widget('left') ?>
+    </div>
+    <div class="big_center no_margin">
+      <?php echo $this->layout()->content ?>
+    </div>
+    <div class="right">
+      <div class="box no_margin">
+        <div class="box_t">
+          <div class="box_b">
+            <h2>Menu</h2>
+            <?php echo $this->pageNav('right') ?>
+          </div>
+        </div>
+      </div>
+      <div class="clr"></div>
+      <?php echo $this->widget('right') ?>
+    </div>
+    <div class="clr"></div>
+  </div>
+</div>
+<div class="footer">
+  <div class="FBG">
+    <div class="footer_resize">
+      <p class="leftt">© Copyright <?php echo $this->config('sitename') ?><br />
+        <?php echo $this->pageNav('footer',array('style'=>'a-|')) ?></p>
+      <div class="clr"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

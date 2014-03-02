@@ -1,0 +1,13 @@
+<?php foreach ( $this->paginator as $event ) : ?>
+<div class="event">
+	<h3><?php echo $event['event_title'] ?></h3>
+	<small><?php echo $this->date()->mysqldate2web($event['event_date_from'],'dd MMM yyyy') ?> to <?php echo $this->date()->mysqldate2web($event['event_date_to'],'dd MMM yyyy') ?></small><br>
+	<?php echo("Location : ");?>
+	<?php echo $event['event_location'] ?><br>
+	<div class="event_content"><?php echo $event['event_shortdesc'] ?></div>
+	<div class="event_tool">
+		<a href="<?php echo $this->pageUrl('light-event','detail',array('id'=>$event['event_id'])) ?>">more</a>
+	</div>
+</div>
+<?php endforeach; ?>
+<?php echo $this->paginator ?>

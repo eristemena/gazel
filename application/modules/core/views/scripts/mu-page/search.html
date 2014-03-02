@@ -1,0 +1,11 @@
+<h2>Search Results</h2>
+
+<?php if (count($this->result)==0): ?>
+No result found.
+<?php else: ?>
+<ul>
+<?php foreach($this->result as $res): ?>
+<li><a href="<?php echo $this->url(array('alias'=>$res['page_alias']),'page',true) ?>"><?php echo $res['page_title'] ?></a></li>
+<?php endforeach; ?>
+</ul>
+<?php endif; ?>

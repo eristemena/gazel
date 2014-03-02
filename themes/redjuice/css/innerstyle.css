@@ -1,0 +1,1015 @@
+/* CSS Document */
+
+body{
+	padding:0;
+	margin:0;
+	font-family:Arial, Helvetica, sans-serif;
+}
+div, h1, h2, h3, h4, p, form, label, input, textarea, img, span{
+	margin:0; padding:0;
+}
+
+ul{
+	margin:0; 
+	padding:0; 
+	list-style-type:none;
+}
+.spacer{
+	clear:both; 
+	font-size:0; 
+	line-height:0;
+}
+/*------------------------------------------------body--------------------*/
+
+/*------------------------------------------------top--------------------*/
+#topMain{
+	width:100%;
+	background:url(../images/topinside_bg.gif) 0 0 repeat-x;
+	height:257px;
+	padding:10px 0 0 0;
+}
+#top{
+	width:1003px;
+	height:257px;
+	margin:0 auto;
+	background:url(../images/headerinside.jpg) 0 0 no-repeat;
+	position:relative;
+}
+#top img.logo{
+	position:absolute;
+	left:30px;
+	top:41px;
+	width:202px;
+	height:81px;
+}
+#top img.login{
+	position:absolute;
+	left:478px;
+	top:70px;
+	width:106px;
+	height:80px;
+}
+#top ul.topNav{
+	background:url(../images/top_nav_bg.gif) 0 0 no-repeat;
+	width:376px;
+	height:68px;
+	position:absolute;
+	left:584px;
+	top:68px;
+	padding:17px 0 0 13px;
+}
+#top ul.topNav li{
+	float:left;
+	height:50px;
+	padding:0 2px 0 0;
+	background:url(../images/top_nav_div.gif) right top no-repeat;
+}
+#top ul.topNav li a{
+	display:block;
+	background:url(../images/nav_bg.gif) 0 0 repeat-x;
+	padding:0 12px;
+	font:bold 11px/50px Arial, Helvetica, sans-serif;
+	color:#E9B9B9;
+	background-color:inherit;
+	text-decoration:none;
+	text-transform:uppercase;
+}
+div.widget{
+	margin:10px 0;
+}
+#top ul.topNav li a:hover{
+	background:url(../images/nav_bg_hover.gif) 0 0 repeat-x;
+	color:#fff;
+	background-color:inherit;
+	border-left:#000000 solid 1px;
+	border-right:#000000 solid 1px;
+	padding:0 11px;
+}
+#top ul.topNav li.noImg{
+	background-image:none;
+}
+#top ul.topNav li a.hover{
+	display:block;
+	background:url(../images/nav_bg_hover.gif) 0 0 repeat-x;
+	color:#fff;
+	background-color:inherit;
+	padding:0 11px;
+	font:bold 11px/50px Arial, Helvetica, sans-serif;
+	text-decoration:none;
+	text-transform:uppercase;
+	border-left:#000000 solid 1px;
+	border-right:#000000 solid 1px;
+}
+#top form{
+	width:203px;
+	height:40px;
+	background:url(../images/serch_icon.gif) 0 0 no-repeat;
+	padding:0 0 0 25px;
+	position:absolute;
+	left:16px;
+	top:213px;
+}
+#top form label{
+	width:47px;
+	height:21px;
+	display:block;
+	float:left;
+	font:bold 12px/21px Arial, Helvetica, sans-serif;
+	color:#fff;
+	background-color:inherit;
+}
+#top form input.txtBox{
+	width:147px;
+	height:19px;
+	border-bottom:#D4D0C8 solid 1px;
+	border-right:#D4D0C8 solid 1px;
+	border-top:#808080 solid 1px;
+	border-left:#808080 solid 1px;
+	font:normal 10px/19px Arial, Helvetica, sans-serif;
+	color:#000;
+	background-color:#fff;
+	padding:0 0 0 7px;
+	float:left;
+}
+#top form input.signup{
+	background:url(../images/btn_signup.gif) 0 0 no-repeat;
+	width:45px;
+	height:17px;
+	float:right;
+	border:none;
+	cursor:pointer;
+}
+#top h1{
+	display:block;
+	background:url(../images/slogan.gif) 0 0 no-repeat;
+	width:511px;
+	height:61px;
+	position:absolute;
+	left:470px;
+	top:227px;
+	text-indent:-2000px;
+}
+/*------------------------------------------------top--------------------*/
+
+/*------------------------------------------------menu--------------------*/
+#menuMain{
+	width:100%;
+	height:28px;
+	background:url(../images/menu_bg.gif) 0 0 repeat-x;
+}
+#menu{
+	width:942px;
+	margin:0 auto;
+	height:28px;
+}
+#menu ul{
+	width:942px;
+	height:28px;
+}
+#menu ul li{
+	float:left;
+	border-right:#595959 solid 1px;
+	height:28px;
+}
+#menu ul li a{
+	display:block;
+	padding:0 14px;
+	font:bold 11px/28px Arial, Helvetica, sans-serif;
+	color:#979696;
+	text-decoration:none;
+	background-color:inherit;
+}
+#menu ul li a:hover{
+	color:#8DA128;
+	background-color:inherit;
+}
+#menu ul li.noBdr{
+	border:none;
+}
+#menu ul li a.first{
+	display:block;
+	padding:0 14px 0 0;
+	font:bold 11px/28px Arial, Helvetica, sans-serif;
+	color:#979696;
+	text-decoration:none;
+	background-color:inherit;
+}
+#menu ul li a.first:hover{
+	color:#8DA128;
+	background-color:inherit;
+}
+#menu ul li a.last{
+	display:block;
+	padding:0 0 0 14px;
+	font:bold 11px/28px Arial, Helvetica, sans-serif;
+	color:#979696;
+	text-decoration:none;
+	background-color:inherit;
+}
+#menu ul li a.last:hover{
+	color:#8DA128;
+	background-color:inherit;
+}
+/*------------------------------------------------menu--------------------*/
+
+/*------------------------------------------------body--------------------*/
+#bodyMain{
+	width:100%;
+	background:url(../images/body_bg.gif) 0 0 repeat-x #530F0F;
+	color:#000;
+}
+#body{
+	width:942px;
+	background:url(../images/body_bg2.gif) 0 0 repeat-x #740303;
+	color:#000;
+	padding:0 10px;
+	margin:0 auto;
+}
+/*------------------------------------------------left--------------------*/
+#left{
+	width:239px;
+	padding:20px 0 0 0;
+	float:left;
+}
+#left h2.project{
+	display:block;
+	width:163px;
+	height:53px;
+	background:url(../images/project_icon.gif) 0 10px no-repeat;
+	padding:0 0 0 42px;
+	font:normal 24px/53px Arial, Helvetica, sans-serif;
+	color:#fff;
+	background-color:inherit;
+}
+#left h3.yellowTxt{
+	display:block;
+	width:205px;
+	font:bold 12px/12px Arial, Helvetica, sans-serif;
+	color:#BAA989;
+	background-color:inherit;
+	margin:0 0 13px 0;
+}
+#left img.pro{
+	margin:0 0 18px 0;
+	width:205px;
+	height:87px;
+	font-size:0;
+	line-height:0;
+	display:block;
+}
+#left h2.newsletter{
+	display:block;
+	background:url(../images/newsletter_bg.gif) 0 0 no-repeat;
+	width:189px;
+	height:31px;
+	padding:0 0 0 16px;
+	font:bold 16px/31px Arial, Helvetica, sans-serif;
+	color:#fff;
+	background-color:inherit;
+	margin:31px 0 0 0;
+}
+#left form{
+	width:174px;
+	padding:8px 15px 25px 16px;
+	background-color:#4F0202;
+	color:#fff;
+}
+#left form label{
+	display:block;
+	width:174px;
+	font:normal 11px/22px  "Trebuchet MS", Arial, Helvetica, sans-serif;
+	float:left;
+}
+#left form input.txtbox2{
+	width:172px;
+	height:19px;
+	border-bottom:#D4D0C8 solid 1px;
+	border-right:#D4D0C8 solid 1px;
+	border-top:#808080 solid 1px;
+	border-left:#808080 solid 1px;
+	background-color:#fff;
+	color:#000;
+	float:left;
+}
+#left form a{
+	width:88px;
+	height:17px;
+	float:left;
+	font:bold 11px/17px Arial, Helvetica, sans-serif;
+	color:#A09172;
+	background-color:inherit;
+	margin:11px 0 0 0;
+	text-decoration:underline;
+}
+#left form a:hover{
+	text-decoration:none;
+}
+#left form input.signup2{
+	background:url(../images/btn_signup2.gif) 0 0 no-repeat;
+	width:45px;
+	height:17px;
+	float:right;
+	margin:11px 0 0 0;
+	border:none;
+	cursor:pointer;
+}
+/*------------------------------------------------left--------------------*/
+
+/*------------------------------------------------mid--------------------*/
+
+div.side{
+	background:url(../images/mid_panel_bg.gif) 0 0 repeat-x #450404;
+	padding:10px;
+}
+div.side ul li a{
+	font-family:Arial, Helvetica, sans-serif;
+	color:#979696;
+	font-size:11px;
+}
+#right{
+	width:550px;
+	float:left;
+	padding:20px 10px;
+	color:#979696;
+	font-size:11px;
+}
+#right a{
+	color:#979696;
+}
+#mid{
+	width:180px;
+	float:left;
+}
+#mid-right{
+	width:180px;
+	float:right;
+}
+#mid1{
+	width:170px;
+	margin:0 0 6px 0;
+	background:url(../images/mid_panel_bg.gif) 0 0 repeat-x #450404;
+	color:#D59E9E;
+	padding:32px 19px 18px 19px;
+}
+#mid1 h2{
+	display:block;
+	width:71px;
+	padding:0 0 0 62px;
+	background:url(../images/event_icon.gif) 36px 0 no-repeat;
+	height:29px;
+	margin:0 0 10px 0;
+	font:normal 24px/29px Arial, Helvetica, sans-serif;
+	color:#fff;
+	background-color:inherit;
+}
+#mid1 p.midTxt1{
+	display:block;
+	width:160px;
+	font:normal 12px/18px Arial, Helvetica, sans-serif;
+	color:#988766;
+	background-color:inherit;
+	margin:0 0 13px 0;
+}
+#mid1 h3{
+	display:block;
+	width:168px;
+	height:19px;
+	margin:0 0 14px 0;
+	font:bold 12px/19px Arial, Helvetica, sans-serif;
+	color:#BE4545;
+	background-color:#5C0B0B;
+	text-align:center;
+	text-transform:uppercase;
+}
+#mid1 p.midTxt2{
+	display:block;
+	width:168px;
+	margin:0 0 21px 0;
+	font:normal 12px/21px Arial, Helvetica, sans-serif;
+	text-align:center;
+}
+#mid1 p.moreBg{
+	display:block;
+	background:url(../images/more_bg.gif) 0 0 no-repeat;
+	width:106px;
+	height:18px;
+	padding:0 0 0 62px;
+}
+#mid1 p.moreBg a{
+	background:url(../images/more.gif) 0 0 no-repeat;
+	width:45px;
+	height:17px;
+	display:block;
+}
+#mid1 p.moreBg a:hover{
+	background:url(../images/more_hover.gif) 0 0 no-repeat;
+}
+#service{
+	width:176px;
+	background-color:#450404;
+	color:#D59E9E;
+	padding:17px 13px 24px 19px;
+	margin:0;
+}
+#service h2{
+	display:block;
+	width:71px;
+	padding:0 0 0 62px;
+	background:url(../images/service.gif) 36px 0 no-repeat;
+	height:24px;
+	margin:0 0 21px 0;
+	font:normal 24px/24px Arial, Helvetica, sans-serif;
+	color:#fff;
+	background-color:inherit;
+}
+#service p.serviceTxt1{
+	display:block;
+	width:150px;
+	font:bold 13px/18px Arial, Helvetica, sans-serif;
+	color:#988766;
+	background-color:inherit;
+	margin:0 0 12px 0;
+	padding:0 0 0 7px;
+}
+#service p.serviceTxt2{
+	width:162px;
+	font:normal 12px/24px Arial, Helvetica, sans-serif;
+	color:#D59E9E;
+	background-color:inherit;
+	text-decoration:underline;
+	margin:0 0 29px 0;
+	text-align:center;
+	display:block;
+}
+#service p.moreBg2{
+	display:block;
+	background:url(../images/more_bg.gif) 0 0 no-repeat;
+	width:106px;
+	height:18px;
+	padding:0 0 0 62px;
+	margin:0 0 14px 0;
+}
+#service p.moreBg2 a.morelink{
+	background:url(../images/more.gif) 0 0 no-repeat;
+	width:45px;
+	height:17px;
+	display:block;
+}
+#service p.moreBg2 a.morelink:hover{
+	background:url(../images/more_hover.gif) 0 0 no-repeat;
+}
+#service a.botlink{
+	display:block;
+	background:url(../images/mid_bot_link.gif) 0 0 no-repeat;
+	width:176px;
+	height:60px;
+}
+#service a.botlink:hover{
+	display:block;
+	background:url(../images/mid_bot_link_hover.gif) 0 0 no-repeat;
+}
+/*------------------------------------------------mid--------------------*/
+
+/*------------------------------------------------right--------------------*/
+
+/*------------------------------------------------right--------------------*/
+
+/*------------------------------------------------body--------------------*/
+
+/*------------------------------------------------footer--------------------*/
+#footerMain{
+	width:100%;
+	height:116px;
+	background:url(../images/footer_bg.gif) 0 0 repeat-x;
+}
+#footer{
+	width:942px;
+	margin:0 auto;
+	height:116px;
+	position:relative;
+}
+#footer ul{
+	width:552px;
+	position:absolute;
+	left:0;
+	top:21px;
+}
+#footer ul li{
+	float:left;
+	font:normal 11px/14px Arial, Helvetica, sans-serif;
+	color:#979696;
+	background-color:inherit;
+}
+#footer ul li a{
+	padding:0 7px;
+	font:normal 11px/14px Arial, Helvetica, sans-serif;
+	color:#979696;
+	background-color:inherit;
+	text-decoration:none;
+}
+#footer ul li a:hover{
+	text-decoration:underline;
+}
+#footer ul li a.one{
+	padding:0 7px 0 0;
+	font:normal 11px/14px Arial, Helvetica, sans-serif;
+	color:#979696;
+	background-color:inherit;
+	text-decoration:none;
+}
+#footer ul li a.one:hover{
+	text-decoration:underline;
+}
+#footer p.copyright{
+	font:normal 10px/14px Arial, Helvetica, sans-serif;
+	position:absolute;
+	left:0;
+	top:41px;
+	width:230px;
+	color:#BAA884;
+	background-color:inherit;
+}
+#footer p.design{
+	display:block;
+	width:197px;
+	height:19px;
+	padding:0;
+	position:absolute;
+	left:0;
+	top:60px;
+	font:bold 12px/14px Arial, Helvetica, sans-serif;
+	color:#D54A4A;
+	background-color:inherit;
+}
+#footer p.design a.link{
+	font:bold 12px/14px Arial, Helvetica, sans-serif;
+	color:#D54A4A;
+	background-color:inherit;
+	text-decoration:none;
+}
+#footer p.design a.link:hover{
+	color:#fff;
+	background-color:#D54A4A;
+}
+#footer a.xhtml{
+	display:block;
+	background:url(../images/xhtml_bg.gif) 0 0 no-repeat;
+	width:81px;
+	height:16px;
+	position:absolute;
+	left:770px;
+	top:17px;
+}
+#footer a.xhtml:hover{
+	background:url(../images/xhtml_bg_hover.gif) 0 0 no-repeat;
+}
+#footer a.css{
+	display:block;
+	background:url(../images/css_bg.gif) 0 0 no-repeat;
+	width:81px;
+	height:16px;
+	position:absolute;
+	left:861px;
+	top:17px;
+}
+#footer a.css:hover{
+	background:url(../images/css_bg_hover.gif) 0 0 no-repeat;
+}
+/*------------------------------------------------footer--------------------*/
+/*------------------------------------------------Contact--------------------*/
+.contactformfield {
+	font-family: Verdana;
+	font-size: 11px;
+	color: #000000;
+	height: 20px;
+	width: 75%;
+	float: left;
+	margin: 3px;
+	padding: 3px;
+	top: 1px;
+	clip: rect(1px,auto,auto,auto);
+	clear: none;
+	right: 30px;
+}
+.contactsubmit {
+	font-family: Verdana;
+	font-size: 11px;
+	color: #ffffff;
+	background-attachment: scroll;
+	background-image: url(../images/read_more_bg.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 20px;
+	width: 76%;
+	clip: rect(500px,500px,auto,auto);
+	top: 500px;
+	right: 500px;
+	bottom: 500px;
+	left: 500px;
+	float: left;
+	margin: 5px;
+	padding: 5px;
+}
+
+.contactformmessage {
+	font-family: Verdana;
+	font-size: 11px;
+	color: #000000;
+	height: 170px;
+	width: 580px;
+	float: none;
+	margin: 3px;
+	padding: 3px;
+}
+.contactbox {
+	font-family: Verdana;
+	font-size: 11px;
+	color: #000000;
+	border: 1px solid #CCCCCC;
+	height: 18px;
+}
+.commentslabel {
+	font-family: Verdana;
+	font-size: 11px;
+	color: #FFFFFF;
+	float: left;
+	height: 170px;
+	width: 100px;
+	margin: 3px;
+}
+
+.contactmessagebox {
+
+	font-family: Verdana;
+	font-size: 11px;
+	color: #000000;
+	border: 1px solid #CCCCCC;
+	height: 170px;
+}
+.contacttextarea {
+	font-family: Verdana;
+	font-size: 11px;
+	color: #000000;
+	margin: 3px;
+	padding: 3px;
+}
+.submitarea {
+	font-family: Verdana;
+	font-size: 11px;
+	color: #FFFFFF;
+	float: left;
+	width: 600px;
+}
+.submitbutton {
+	font-family: Verdana;
+	font-size: 11px;
+	color: #FFFFFF;
+	background-attachment: scroll;
+	background-image: url(../images/submitbg.gif);
+	background-repeat: repeat-x;
+	background-position: center center;
+	border: 1px solid #FFFFFF;
+	height: 25px;
+}
+
+
+.contacttext {
+	margin: 3px;
+	padding: 3px;
+	height: 18px;
+	width: 100px;
+	float: left;
+	font-family: Verdana;
+	font-size: 11px;
+	color: #FFFFFF;
+}
+.contacterrortext {
+	margin: 3px;
+	padding: 3px;
+	height: 18px;
+	width: 10px;
+	float: left;
+	font-family: Verdana;
+	font-size: 11px;
+	color: #000000;
+}
+/*------------------------------------------------Contact--------------------*/
+
+.linkpopup {
+	position: relative;
+	font-family: Verdana;
+	font-size: 11px;
+	color: #1D859B;
+	height: 18px;
+	width: 250px;
+}
+
+.linkpopup span {
+ background-color: #ccc;
+ border: 1px solid #000;
+ display: block;
+ left: 0;
+ padding: .25em;
+ position: absolute;
+ top: -1.75em;
+}
+
+.linkpopup:link span,
+.linkpopup:visited span {
+ visibility: hidden;
+}
+
+.linkpopup:hover span,
+.linkpopup:focus span,
+.linkpopup:active span {
+	color: #000;
+	text-decoration: none;
+	visibility: visible;
+	border-top-color: #000000;
+	border-right-color: #000000;
+	border-bottom-color: #000000;
+	border-left-color: #000000;
+}
+.linkpopupmessagebox {
+	position: relative;
+	font-family: Verdana;
+	font-size: 11px;
+	color: #1D859B;
+	height: 170px;
+	width: 350px;
+}
+
+.linkpopupmessagebox span {
+ background-color: #ccc;
+ border: 1px solid #000;
+ display: block;
+ left: 0;
+ padding: .25em;
+ position: absolute;
+ top: -1.75em;
+}
+
+.linkpopupmessagebox:link span,
+.linkpopupmessagebox:visited span {
+ visibility: hidden;
+}
+
+.linkpopupmessagebox:hover span,
+.linkpopupmessagebox:focus span,
+.linkpopupmessagebox:active span {
+ color: #000;
+ text-decoration: none;
+ visibility: visible;
+}
+
+
+/*------------------------------------------------Email--------------------*/
+
+.linkpopupemail {
+	position: relative;
+	font-family: Verdana;
+	font-size: 11px;
+	color: #1D859B;
+	height: 18px;
+	width: 200px;
+}
+
+.linkpopupemail span {
+ background-color: #ccc;
+ border: 1px solid #000;
+ display: block;
+ left: 0;
+ padding: .25em;
+ position: absolute;
+ top: -1.75em;
+}
+
+.linkpopupemail:link span,
+.linkpopupemail:visited span {
+ visibility: hidden;
+}
+
+.linkpopupemail:hover span,
+.linkpopupemail:focus span,
+.linkpopupemail:active span {
+	color: #000;
+	text-decoration: none;
+	visibility: visible;
+	border-top-color: #000000;
+	border-right-color: #000000;
+	border-bottom-color: #000000;
+	border-left-color: #000000;
+}
+/*------------------------------------------------Email--------------------*/
+.contactcommenttext {
+
+	margin: 3px;
+	padding: 3px;
+	height: 170px;
+	width: 100px;
+	float: left;
+	font-family: Verdana;
+	font-size: 11px;
+	color: #FFFFFF;
+}
+/*------------------------------------------------Textboxon Email--------------------*/
+
+.borderEffect
+{
+background-color:#FFFFCC;
+color:#A05A3D;
+margin:0px;
+padding:0px;
+border:1px solid #FFCC00;
+}
+.borderEffect:hover
+{
+background-color:#FFCC89;
+color:#A05A3D;
+margin:0px;
+padding:0px;
+border:1px solid #A05A3D;
+}
+/*------------------------------------------------Textbox on Email--------------------*/
+/*------------------------------------------------Textbox --------------------*/
+
+.textboxEffect
+{
+	background-color:#FFFFFF;
+	color:#000000;
+	margin:0px;
+	padding:0px;
+	border:1px solid #4D0101;
+	height: 18px;
+	width: 250px;
+	font-family: Verdana;
+	font-size: 11px;
+	line-height: 19px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 11px;
+	margin-left: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+}
+.textboxEffect:hover
+{
+background-color:#FFFFFF;
+color:#740303;
+margin:0px;
+padding:0px;
+border:1px solid #ffffff;
+	font-family: Verdana;
+	font-size: 11px;
+	line-height: 19px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 11px;
+	margin-left: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+}
+/*------------------------------------------------Textbox --------------------*/
+/*------------------------------------------------Textboxdropdown --------------------*/
+
+.dropdownEffect
+{
+	background-color:#FFFFFF;
+	color:#000000;
+	border:1px solid #4D0101;
+	height: 18px;
+	width: 260px;
+	font-family: Verdana;
+	font-size: 11px;
+	line-height: 19px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 11px;
+	margin-left: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+}
+.dropdownEffect:hover
+{
+background-color:#FFFFFF;
+color:#740303;
+margin:0px;
+padding:0px;
+border:1px solid #ffffff;
+	font-family: Verdana;
+	font-size: 11px;
+	line-height: 19px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 11px;
+	margin-left: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+}
+/*------------------------------------------------Textboxdropdown --------------------*/
+/*------------------------------------------------Massagebox --------------------*/
+
+.MassageboxEffect
+{
+	background-color:#FFFFFF;
+	color:#000000;
+	margin:0px;
+	padding:0px;
+	border:1px solid #4D0101;
+	height: 170px;
+	width: 350px;
+	font-family: Verdana;
+	font-size: 11px;
+	line-height: 19px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 11px;
+	margin-left: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+}
+.MassageboxEffect:hover
+{
+background-color:#FFFFFF;
+color:#740303;
+margin:0px;
+padding:0px;
+border:1px solid #ffffff;
+	font-family: Verdana;
+	font-size: 11px;
+	line-height: 19px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 11px;
+	margin-left: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+}
+/*------------------------------------------------Massagebox --------------------*/
+.contacttextindicate {
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+}
+.submitdiv {
+	float: left;
+	height: 20px;
+	width: 80%;
+	margin: 3px;
+	padding: 3px;
+}
+.contactformmessagefield {
+
+	font-family: Verdana;
+	font-size: 11px;
+	color: #000000;
+	height: 170px;
+	width: 75%;
+	float: left;
+	margin: 1px;
+	padding: 1px;
+	top: 1px;
+	clip: rect(1px,auto,auto,auto);
+	clear: none;
+	right: 30px;
+}
+.contactdropdownformfield {
+	font-family: Verdana;
+	font-size: 11px;
+	color: #000000;
+	height: 20px;
+	width: 73%;
+	float: left;
+	margin: 3px;
+	top: 1px;
+	clip: rect(1px,auto,auto,auto);
+	clear: none;
+	right: 30px;
+	padding-top: 3px;
+	padding-right: 3px;
+	padding-bottom: 3px;
+	padding-left: 7px;
+}
+.submitbuttonarea {
+	margin: 5px;
+	float: left;
+	height: 50px;
+	width: 300px;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 110px;
+}

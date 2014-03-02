@@ -1,0 +1,5 @@
+<h2><?php echo $this->escape($this->product['product_name']) ?></h2>
+<div class="product_image">
+		<img src="<?php echo $this->dimageUrl('light_product',320,320,$this->product['product_id'],'jpg') ?>" />
+	</div>
+<div class="product_content"><?php echo $this->escape($this->product['product_desc']) ?></div>

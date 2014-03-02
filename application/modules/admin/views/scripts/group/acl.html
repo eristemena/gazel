@@ -1,0 +1,44 @@
+<?php
+$acl=unserialize($this->acl['admingroup_acl']);
+?>
+	<link rel="stylesheet" type="<?php echo $this->baseUrl('assets/js/dhtmlx/dhtmlxTree/dhtmlxtree.css') ?>">
+	<script  src="<?php echo $this->baseUrl('assets/js/dhtmlx/dhtmlxTree/dhtmlxcommon.js') ?>"></script>
+	<script  src="<?php echo $this->baseUrl('assets/js/dhtmlx/dhtmlxTree/dhtmlxtree.js') ?>"></script>
+	<script  src="<?php echo $this->baseUrl('assets/js/jquery-1.4.2.min.js') ?>"></script>
+	<script language="javascript">
+	function go_preview()
+	{
+		var acl_selected = tree2.getAllChecked();
+		if (acl_selected == "")
+		{
+			alert ("Pilih root tree nya");
+			return false;
+		}
+		$('#acl').val(acl_selected);
+		$("#frmReport").submit();
+	}
+	</script>
+
+
+<form method="post" action="<?php echo $this->url(array('action'=>'acl')) ?>" id="frmReport">
+<div class="tree">
+<ul>
+	<table>
+		<td valign="top">
+			<div id="treeboxbox_tree2" style="width:250; height:218;background-color:#f5f5f5;border :1px solid Silver;; overflow:auto;" ></div>
+		</td>
+	</table>
+</ul>
+</div>
+<input type="hidden" name="act" value="edit" />
+<input type="hidden" name ="acl" id="acl" value="">
+<input name="update" id="update" type="button" onClick="go_preview()" value="update" />
+</form>
+
+<script>
+	tree2=new dhtmlXTreeObject("treeboxbox_tree2","100%","100%",0);
+	tree2.setImagePath("<?php echo $this->baseUrl('assets/js/dhtmlx/dhtmlxTree/imgs/csh_vista/') ?>");
+	tree2.enableCheckBoxes(1);
+	tree2.enableThreeStateCheckboxes(true);
+	tree2.loadXML("<?php echo $this->url(array('action'=>'aclxml','id'=>$this->getRequest()->getParam('id'))) ?>");
+</script>

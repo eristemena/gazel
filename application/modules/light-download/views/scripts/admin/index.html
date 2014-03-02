@@ -1,0 +1,40 @@
+<div id="Layer1" style="position:absolute; left:561px; top:143px; width:544px; height:28px; z-index:1">
+<?php
+	
+	$fields = array (
+		array('download_name',$this->translate->_('Name')),
+		array('download_filename',$this->translate->_('File Name'))
+	);
+	
+	echo $this->admin()->searchForm($fields);
+
+?>
+</div>
+
+<table class="tadmin">
+	<thead>
+		<tr>
+			<th width="5" class="cb"><input type="checkbox" id="cbcall" /></th>
+			<?php echo $this->admin()->th("download_name",$this->translate->_("Name")) ?>
+			<?php echo $this->admin()->th("download_filename",$this->translate->_("File Name")) ?>
+			<?php echo $this->admin()->th("download_type",$this->translate->_("Type")) ?>
+			<?php echo $this->admin()->th("download_filesize",$this->translate->_("File Size")) ?>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach ( $this->paginator as $k=>$n ): ?>
+		<tr>
+			<td><input type="checkbox" name="cb[]" value="<?php echo $n['download_id'] ?>" /></td>
+			<td><a href="<?php echo $this->admin()->editLink($n['download_id']) ?>"><?php echo $this->escape($n['download_name']) ?></a></td>
+			<td><a href="<?php echo $this->fileUrl($n['download_id']) ?>"><?php echo $this->escape($n['download_filename']) ?></a></td>
+			<td><?php echo $this->escape($n['download_type']) ?></td>
+			<td><?php echo $this->humanFileSize($n['download_filesize']) ?></td>
+		</tr>
+		<?php endforeach; ?>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="3"><?php echo $this->paginator ?></td>
+		</tr>
+	</tfoot>
+</table>

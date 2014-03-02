@@ -1,0 +1,25 @@
+<table class="tadmin">
+	<thead>
+		<tr>
+			<th width="5" class="cb"><input type="checkbox" id="cbcall" /></th>
+			<th width="60">Name</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php if ( count($this->paginator)>0 ): ?>
+		<?php foreach ( $this->paginator as $k=>$n ): ?>
+		<tr>
+			<td><input type="checkbox" name="cb[]" value="<?php echo $n['section_id'] ?>" /></td>
+			<td><a href="<?php echo $this->admin()->editLink($n['section_id']) ?>"><?php echo $this->escape($n['section_name']) ?></a></td>
+			<td><?php echo $this->escape($n['section_desc']) ?></td>
+		</tr>
+		<?php endforeach; ?>
+	<?php endif; ?>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td><?php echo $this->paginator ?></td>
+		</tr>
+	</tfoot>
+</table>

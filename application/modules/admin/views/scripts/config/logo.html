@@ -1,0 +1,10 @@
+<?php
+if ( $this->ext=='swf' )
+{
+	echo $this->htmlFlash($this->src,array('width' => $this->logo_width,'height' => $this->logo_height),array('wmode'=>'transparent'));
+}
+else
+{
+	echo '<img src="'.$this->src.'" width="'. $this->logo_width.'" height="'. $this->logo_height.'" border="0" />';
+}
+?>

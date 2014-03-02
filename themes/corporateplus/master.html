@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<base href="<?php echo $this->config('themeurl'); ?>/" />
+	<title><?php echo $this->config('sitename') ?></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+<div class="main">
+  <div class="header">
+    <div class="logo_text">
+      <p>&nbsp;</p>
+    </div>
+    <div class="clr"></div>
+    <div class="logo"><a href="<?php echo $this->config('baseurl') ?>"><?php echo $this->logoHeader() ?></a></div>
+    <div class="clr"></div>
+    <div class="menu">
+      <?php echo $this->pageNav('main',array('style'=>'ul-li-a-span')) ?>
+    </div>
+    <div class="Search">
+      <form method="get" id="form_search" action="<?php echo $this->gazelUrl(array(),'search',true) ?>">
+        <input name="keyword" type="text" class="keyword" id="search_q" value="search" />
+        <input name="" type="image" class="button" src="images/search.gif" />
+      </form>
+    </div>
+    <div class="clr"></div>
+  </div>
+  <div class="clr"></div>
+  <div class="body">
+    <div class="side_left">
+      <?php echo $this->pageNav('left') ?>
+      <?php echo $this->widget('left') ?>
+    </div>
+    <div class="side_content">
+    	<?php if ( $this->page['page_alias']!='home' ): ?><h2><?php echo $this->page['page_title']; ?></h2><?php endif; ?>
+      <?php echo $this->layout()->content ?>
+    </div>
+    <div class="side_right">
+      <?php echo $this->pageNav('right') ?>
+      <?php echo $this->widget('right') ?>
+    </div>
+    <div class="clr"></div>
+  </div>
+  <div class="footer">
+    <div class="clr"></div>
+    <div class="footer_resize"> © Copyright <?php echo $this->config('sitename') ?><br />
+      <?php echo $this->pageNav('footer',array('style'=>'a-|')) ?></div>
+  </div>
+</div>
+</body>
+</html>

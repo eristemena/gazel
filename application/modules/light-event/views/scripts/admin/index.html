@@ -1,0 +1,40 @@
+<div id="Layer1" style="position:absolute; left:561px; top:143px; width:544px; height:28px; z-index:1">
+<?php
+	
+	$fields = array (
+		array('event_title',$this->translate->_('Title')),
+		array('event_location',$this->translate->_('Location')),
+		array('event_date_from',$this->translate->_('Date Start'),'date'),
+		array('event_date_end',$this->translate->_('Date End'),'date')
+	);
+	
+	echo $this->admin()->searchForm($fields);
+?>
+</div>
+<table class="tadmin">
+	<thead>
+		<tr>
+			<th width="5" class="cb"><input type="checkbox" id="cbcall" /></th>
+			<?php echo $this->admin()->th("event_title",$this->translate->_("Title")) ?>
+			<?php echo $this->admin()->th("event_date_from",$this->translate->_("Date Start")) ?>
+			<?php echo $this->admin()->th("event_date_to",$this->translate->_("Date End")) ?>
+			<?php echo $this->admin()->th("event_location",$this->translate->_("Location")) ?>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach ( $this->paginator as $k=>$n ): ?>
+		<tr>
+			<td><input type="checkbox" name="cb[]" value="<?php echo $n['event_id'] ?>" /></td>
+			<td><a href="<?php echo $this->admin()->editLink($n['event_id']) ?>"><?php echo $this->escape($n['event_title']) ?></a></td>
+			<td><?php echo $this->date()->mysqldate2web($n['event_date_from']) ?></td>
+			<td><?php echo $this->date()->mysqldate2web($n['event_date_to']) ?></td>
+			<td><?php echo $this->escape($n['event_location']) ?></td>
+		</tr>
+		<?php endforeach; ?>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="3"><?php echo $this->paginator ?></td>
+		</tr>
+	</tfoot>
+</table>

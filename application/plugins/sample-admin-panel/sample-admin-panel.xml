@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="plugin">
+	<name>Sample Admin Panel</name>
+	<description>Example using onAdminRenderPanel() hook</description>
+	<author>Irvan Fanani</author>
+	<creationDate>Maret 2012</creationDate>
+	<copyright>Copyright (C) 2009 Open Source Matters. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>irvan@fanani.com</authorEmail>
+	<authorUrl>www.fanani.com</authorUrl>
+	<version>0.0.1</version>
+</install>

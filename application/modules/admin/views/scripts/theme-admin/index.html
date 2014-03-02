@@ -1,0 +1,120 @@
+<style type="text/css">
+	div.themes{
+		float:left;
+		margin:10px;
+		padding:10px;
+		border:1px solid #f9f9f9;
+		background-color:#ffffff;
+	}
+	div.themes table{
+		border-collapse:collapse;
+	}
+	div.themes table td{
+		vertical-align:top;
+		text-align:center;
+	}
+	div.thumb{
+		width:120px;
+		height:120px;
+		text-align:center;
+	}
+	div.over{
+		border:1px solid #cccccc;
+		background-color:#f9f9f9;
+	}
+	div.active{
+		border:1px solid #000000;
+		background-color:#f9f9e9;
+	}
+	dt#submit-label{
+		display:none;
+	}
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('div.themes').each(function(k,i){
+			if((k+1)%4==0){
+				$(this).after('<div style="clear:both"></div>');
+			}
+		});
+		$('div.themes').mouseover(function(){
+			$('div.themes').removeClass('over');
+			if(!$(this).hasClass('active')){
+				$(this).addClass('over');
+			}
+		}).mouseout(function(){
+			$(this).removeClass('over');
+		});
+		$('a.del').click(function(){
+			if ( confirm("Are you sure you want to delete this theme?") )
+			{
+				location.href=$(this).attr('href');
+			}
+			return false;
+		});
+	});
+</script>
+
+<?php foreach ( $this->paginator as $mname => $m ): ?>
+	<div class="themes <?php if ( $mname == $this->config('themeadminname') ) echo 'active'; ?>">
+		<table>
+			<tr>
+				<td width="245" height="120">
+					<?php
+					if ( is_readable($m->themepath.'/'.$mname.'.jpg') ) {
+						echo '<img src="'.$this->config('themesurl').'/'.$mname.'/'.$mname.'.jpg" />';
+					} else {
+						echo '<img src="'.$this->config('baseurl').'/assets/images/theme_noscreenshot.jpg" />';
+					}
+					?>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<h3><?php echo $this->escape($m->name) ?></h3>
+					<p><?php echo $this->escape($m->description) ?></p>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<?php 
+						$tools=array();
+						if( $mname == $this->config('themeadminname') ) 
+						{
+							$tools[] = '<strong>active</strong>';
+						}
+						else
+						{
+							/*if 	( ($this->config()->multipleuser && $this->config()->mMaster && $m->mu->masterOnly) || 
+										($this->config()->multipleuser && !$m->mu->masterOnly && !$this->config()->mMaster) ||
+										(!$this->config()->multipleuser && !$m->mu->masterOnly)
+									)
+							{*/
+								$tools[] = '<a href="'.$this->url(array('action'=>'install','theme'=>$mname)).'">activate</a>';
+							/*}*/
+						}
+						
+						if ( $this->canDownload )
+						{
+							$tools[] = '<a href="'.$this->url(array('action'=>'download','theme'=>$mname)).'">download</a>';
+						}
+						
+						if ( $this->canDelete )
+						{
+							if ( $mname != $this->config('themeadminname') ) {
+								$tools[] = '<a href="'.$this->url(array('action'=>'delete','theme'=>$mname)).'" class="del">delete</a>';
+							}
+						}
+						
+						echo implode(' | ',$tools);
+					?>
+				</td>
+			</tr>
+		</table>
+	</div>
+<?php endforeach; ?>
+	<table width="100%">
+		<tr>
+			<td align="center"><?php echo $this->paginator ?></td>
+		</tr>
+	</table>

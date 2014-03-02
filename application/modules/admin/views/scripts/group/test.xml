@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+	<item text="Admin" id="books" open="1" im0="tombs.gif" im1="tombs.gif" im2="iconSafe.gif" call="1" select="1">
+		<item text="User Manager" id="lb_1" im0="book_titel.gif" im1="book.gif" im2="book_titel.gif"/>
+		<item text="Theme Manager" id="lb_2" im0="book_titel.gif" im1="book.gif" im2="book_titel.gif"/>
+		<item text="Global Configuration" id="lb_3" im0="book_titel.gif" im1="book.gif" im2="book_titel.gif"/>
+		<item text="Page Manager" id="lb_4" im0="book_titel.gif" im1="book.gif" im2="book_titel.gif"/>
+		<item text="Section Manager" id="lb_5" im0="book_titel.gif" im1="book.gif" im2="book_titel.gif"/>
+		<item text="Section" id="lb_5" im0="book_titel.gif" im1="book.gif" im2="book_titel.gif"/>
+	</item>
+</tree> 

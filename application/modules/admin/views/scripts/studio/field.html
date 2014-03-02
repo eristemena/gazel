@@ -1,0 +1,90 @@
+<form method="post" action="">
+<table class="tadmin">
+	<thead>
+		<tr>
+			<th width="5" class="cb"><input type="checkbox" id="cbcall" /></th>
+			<th>Display Label</th>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Size</th>
+			<th>Required</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php foreach($this->elm as $el){ ?>
+		<tr>
+			<td><input type="checkbox" name="cb[]" value="" /></td>
+			<td>
+				<?php echo $el['label']; ?>
+				<input type="hidden" name="<?php echo $el['name'] ?>['label']" value="<?php echo $el['label'] ?>" />
+			</td>
+			<td><input type="text" name="<?php echo $el['name'] ?>['name']" value="<?php echo $el['name'] ?>" /></td>
+			<td>
+				<select name="<?php echo $el['name'] ?>['type']">
+					<option value="text" <?php if($el['type'] == 'text'){ echo "selected='selected'"; }?>>Text</option>
+					<option value="textarea" <?php if($el['type'] == 'textarea') echo "selected='selected'" ?>>Textarea</option>
+					<option value="richeditor" <?php if($el['type'] == 'richeditor') echo "selected='selected'" ?>>Richeditor</option>
+				</select>
+			</td>
+			<td><input type="text" name="<?php echo $el['name'] ?>['size']" value="<?php echo $el['size'] ?>" /></td>
+			<td>
+				<select name="<?php echo $el['name'] ?>['required']">
+					<option value="1" <?php if($el['required'] == '1') echo 'selected="selected"' ?>>Yes</option>
+					<option value="0" <?php if($el['required'] == '0') echo 'selected="selected"' ?>>No</option>
+				</select>
+			</td>
+		</tr>		
+	<?php } ?>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2" style="text-align:left;"><input type="submit" value="  Save  " /></td>
+		</tr>
+	</tfoot>
+</table>
+<input type="hidden" name="saving" value="1" />
+</form>
+
+<script type="text/javascript">
+function studioFieldDelete(){
+	var cb=[];
+	$('input[type="checkbox"][name="cb[]"]').each(function(){
+		if($(this).is(':checked')){
+			cb[cb.length]='cb[]='+$(this).val();
+			$(this).parent().parent().remove();
+		}
+	});
+	
+	if ( cb.length==0 ) {
+		alert('Please select row to delete first');
+	}else{
+		
+	}
+}
+var additem = 0;
+function studioFieldAdd(){
+	var htm = '<tr>'+
+			'<td><input type="checkbox" name="cb[]" value="" ></td>'+
+			'<td>'+
+				'<input type="text" name="new'+additem+'[\'label\']" >'+
+			'</td>'+
+			'<td><input type="text" name="new'+additem+'[\'name\']" ></td>'+
+			'<td>'+
+				'<select name="new'+additem+'[\'type\']">'+
+					'<option value="text">Text</option>'+
+					'<option value="textarea">Textarea</option>'+
+					'<option value="richeditor">Richeditor</option>'+
+				'</select>'+
+			'</td>'+
+			'<td><input type="text" name="new'+additem+'[\'size\']" ></td>'+
+			'<td>'+
+				'<select name="new'+additem+'[\'required\']">'+
+					'<option value="1">Yes</option>'+
+					'<option value="0">No</option>'+
+				'</select>'+
+			'</td>'+
+		'</tr>		';
+	additem = additem + 1;
+	$('tbody').append(htm);
+}
+</script>

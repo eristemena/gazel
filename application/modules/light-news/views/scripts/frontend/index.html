@@ -1,0 +1,6 @@
+<ul>
+	<?php foreach ($this->listnews as $l): ?>
+	<li><?php echo $this->escape($l['news_title']) ?></li>
+	<?php endforeach ?>
+</ul>
+<?php echo $this->partial('detail') ?>

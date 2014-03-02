@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<base href="<?php echo $this->config('themeurl'); ?>/" />
+	<title><?php echo $this->config('sitename') ?></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+<div class="main">
+  <div class="header">
+    <div class="block_header">
+      <div class="logo"><a href="<?php echo $this->config('baseurl') ?>"><?php echo $this->logoHeader() ?></a></div>
+      <div style="float:right;">
+        <div class="search">
+          <form method="get" id="form_search" action="<?php echo $this->gazelUrl(array(),'search',true) ?>">
+            <label>
+              <input name="keyword" type="text" class="keywords" id="search_q" maxlength="50" value="search" />
+              <input name="b" type="image" src="images/search.gif" class="button" />
+            </label>
+          </form>
+          <div class="clr"></div>
+        </div>
+        <div class="clr"></div>
+        <div class="menu">
+          <?php echo $this->pageNav('main',array('style'=>'ul-li-a-span')) ?>
+        </div>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="slider">
+    <div class="simple_text">
+      <h2><?php if ( $this->page['page_alias']!='home' ) echo $this->page['page_title']; ?></h2>
+    </div>
+  </div>
+  <div class="body">
+    <div class="body_resize">
+    	<div class="box-left">
+        <div class="box"><?php echo $this->pageNav('left') ?></div>
+        <?php echo $this->widget('left') ?>
+      </div>
+      <div class="box-center">
+        <?php echo $this->layout()->content ?>
+      </div>
+      <div class="box-right">
+        <div class="box"><?php echo $this->pageNav('right') ?></div>
+        <?php echo $this->widget('right') ?>
+      </div>
+    </div>
+    <div class="clr"></div>
+  </div>
+  <div class="footer">
+    <div class="resize">
+      <div>© Copyright <?php echo $this->config('sitename') ?></div>
+      <div class="text_left"><?php echo $this->pageNav('footer',array('style'=>'a-|')) ?></div>
+    </div>
+    <p class="clr"></p>
+  </div>
+</div>
+</body>
+</html>

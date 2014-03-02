@@ -1,0 +1,24 @@
+<form method="post" action="">
+<table class="tadmin">
+	<thead>
+		<tr>
+			<th>Current Label</th>
+			<th>New Label</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php foreach($this->elm as $el){ ?>
+		<tr>
+			<td><?php echo $el['label'] ?></td>
+			<td><input type="text" name="<?php echo $el['name']; ?>" value="<?php echo $el['label']; ?>" /></td>
+		</tr>		
+	<?php } ?>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2" style="text-align:left;"><input type="submit" value="  Save  " /></td>
+		</tr>
+	</tfoot>
+</table>
+<input type="hidden" name="saving" value="1" />
+</form>

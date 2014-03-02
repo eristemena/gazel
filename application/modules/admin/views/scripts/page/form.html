@@ -1,0 +1,18 @@
+<style type="text/css">
+fieldset{
+padding:0;
+margin:0;
+border:0;
+}
+</style>
+<script type="text/javascript">
+	var page_type="<?php echo $this->page_type ?>";
+	function showElement(){
+		$('#static-element,#static-label,#module-element,#module-label').hide();
+		$('#'+page_type+'-element').show();
+	}
+	$(document).ready(function(){
+		showElement();
+	});
+</script>
+<?php echo $this->form ?>

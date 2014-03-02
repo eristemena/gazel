@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="theme">
+	<name>Clean Site</name>
+	<description>Theme: Clean Site</description>
+	<author>Eris Ristemena</author>
+	<creationDate>March 2010</creationDate>
+	<copyright>Copyright (C) 2009 Open Source Matters. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>eristemena@ngoprekweb.com</authorEmail>
+	<authorUrl>www.ngoprekweb.com</authorUrl>
+	<version>0.0.1</version>
+</install>

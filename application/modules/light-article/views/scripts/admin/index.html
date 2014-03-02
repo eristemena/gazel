@@ -1,0 +1,40 @@
+<div id="Layer1" style="position:absolute; left:561px; top:143px; width:544px; height:28px; z-index:1">
+<?php
+	//for translate
+		//$translate= Zend_Registry::get('translate');	
+	//
+	
+	$fields = array (
+		array('article_title',$this->translate->_("Title")),
+		array('article_writer',$this->translate->_("Writer")),
+		array('article_date',$this->translate->_("Date"),'date')
+	);
+	
+	echo $this->admin()->searchForm($fields);
+?>
+</div>
+<table class="tadmin">
+	<thead>   
+		<tr>
+			<th width="5" class="cb"><input type="checkbox" id="cbcall" /></th>
+			<?php echo $this->admin()->th("article_title",$this->translate->_("Title")); ?>
+			<?php echo $this->admin()->th("article_writer",$this->translate->_("Writer")); ?>
+			<?php echo $this->admin()->th("article_date",$this->translate->_("Date")); ?>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach ( $this->paginator as $k=>$n ): ?>
+		<tr>
+			<td><input type="checkbox" name="cb[]" value="<?php echo $n['article_name'] ?>" /></td>
+			<td><a href="<?php echo $this->admin()->editLink($n['article_id']) ?>"><?php echo $this->escape($n['article_title']) ?></a></td>
+			<td><?php echo $this->escape($n['article_writer']) ?></td>
+			<td><?php echo $this->date()->mysqldatetime2web($n['article_date']) ?></td>
+		</tr>
+		<?php endforeach; ?>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="3"><?php echo $this->paginator ?></td>
+		</tr>
+	</tfoot>
+</table>

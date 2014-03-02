@@ -1,0 +1,24 @@
+<style type="text/css">
+	table.product{
+		border-collapse:collapse;
+	}
+	table.product td{
+		vertical-align:top;
+	}
+</style>
+<?php foreach ( $this->paginator as $r ) : ?>
+<table class="product">
+	<tr>
+		<td><h3><?php echo $this->escape($r['download_name']) ?></h3></td>
+	</tr>
+	<tr>
+		<td><?php echo $r['download_desc'] ?></td>
+	</tr>
+	<tr>
+		<td>
+			<a href="<?php echo $this->fileUrl($r['download_id']) ?>">download (<?php echo $this->escape($r['download_filename']) ?>, <?php echo $this->humanFileSize($r['download_filesize']) ?>)</a>
+		</td>
+	</tr>
+</table>
+<?php endforeach; ?>
+<?php echo $this->paginator ?>

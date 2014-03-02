@@ -1,0 +1,11 @@
+<?php foreach ( $this->paginator as $news ) : ?>
+<div class="news">
+	<h3><?php echo $news['news_title'] ?></h3>
+	<small><?php echo $this->date()->mysqldate2web($news['news_date'],'dd MMM yyyy') ?></small>
+	<div class="news_content"><?php echo $news['news_shortdesc'] ?></div>
+	<div class="news_tool">
+		<a href="<?php echo $this->pageUrl('light-news','detail',array('id'=>$news['news_id'])) ?>">more</a>
+	</div>
+</div>
+<?php endforeach; ?>
+<?php echo $this->paginator ?>

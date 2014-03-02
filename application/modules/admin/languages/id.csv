@@ -1,0 +1,72 @@
+/*--Login---*/,
+Login,Login
+Username,Pengguna
+Password,Password
+Name,Nama
+New Password,Password Baru
+Re-type Password,Ketik Ulang Sandi
+Group,Kelompok
+Date,Tanggal
+,
+/*--Menu--*/,
+System,Sistem
+User Manager,Pengaturan Pengguna
+Global Configuration, Konfigurasi Global
+Gazel Studio, Gazel Studio
+Logout,Logout
+Widget Manager,Pengaturan Widget
+Content,Konten
+Module,Modul
+Exstensions, Ekstensi
+Install,Pasang
+Page Manager, Pengaturan Halaman
+Section Manager, Pengaturan Section
+Module Manager, Pengaturan Modul
+Plugin Manager,Pengaturan Plugin
+Theme Manager,Pengaturan Thema
+Router Manager,Pengaturan Route
+,
+/*--Modul---*/,
+Article,Artikel
+,
+/*-- View--*/,
+Set Language, Pengaturan Bahasa 
+Use Logo,Pengaturan Logo
+Site Name,Nama Situs
+Next,Berikutnya
+Title,Judul
+,
+/*--Header--*/,
+View the website, Lihat Website
+Default,Standar
+Type,Tipe
+Section,Bagian
+Order,Urut
+Publish,Tampil
+Created On,Dibuat Pada
+Created By,Dibuat Oleh
+Edited On,Diedit Pada
+Edited By, Diedit Oleh
+Next, Berikutnya
+Previous, Sebelumnya
+Make Default,Jadikan Default
+Writer,Penulis
+Module Name,Nama Modul
+Description,Keterangan
+Plugin Name, Nama Plugin
+activate,aktifkan
+delete,hapus
+Backend Theme Manager,Pengaturan Theme Backend
+Router Name,Nama Router
+Widget Name,Nama Widget
+Guest Book,Buku Tamu
+Event,Event
+News,Berita
+Product,Produk
+Yes,Ya
+No,Tidak
+/*--language--*/,
+id,Indonesia
+en,English
+Contains,Mengandung
+Equal to,Sama dengan

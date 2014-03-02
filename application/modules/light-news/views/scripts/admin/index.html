@@ -1,0 +1,34 @@
+<div id="Layer1" style="position:absolute; left:561px; top:143px; width:544px; height:28px; z-index:1">
+<?php
+	
+	$fields = array (
+		array('news_title',$this->translate->_('Title')),
+		array('news_date',$this->translate->_('Date'),'date')
+	);
+	
+	echo $this->admin()->searchForm($fields);
+?>
+</div>
+<table class="tadmin">
+	<thead>
+		<tr>
+			<th width="5" class="cb"><input type="checkbox" id="cbcall" /></th>
+			<?php echo $this->admin()->th("news_title",$this->translate->_("Title")) ?>
+			<?php echo $this->admin()->th("news_date",$this->translate->_("Date")) ?>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach ( $this->paginator as $k=>$n ): ?>
+		<tr>
+			<td><input type="checkbox" name="cb[]" value="<?php echo $n['news_id'] ?>" /></td>
+			<td><a href="<?php echo $this->admin()->editLink($n['news_id']) ?>"><?php echo $this->escape($n['news_title']) ?></a></td>
+			<td><?php echo $this->date()->mysqldate2web($n['news_date']) ?></td>
+		</tr>
+		<?php endforeach; ?>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="3"><?php echo $this->paginator ?></td>
+		</tr>
+	</tfoot>
+</table>

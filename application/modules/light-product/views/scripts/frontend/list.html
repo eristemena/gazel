@@ -1,0 +1,16 @@
+<?php foreach ( $this->paginator as $product ) : ?>
+<div class="product">
+	<h2><?php echo $product['product_title'] ?></h2>
+	<div class="product_image">
+		<img src="<?php echo $this->dimageUrl('product',320,320,$product['product_id'],'jpg') ?>" />
+	</div>
+	<div class="product content">
+		<?php echo $product['product_desc'] ?>
+	</div>
+	<div class="product_tool">
+		
+	</div>
+</div>
+<?php endforeach; ?>
+<div style="clear:both"></div>
+<?php echo $this->paginator ?>

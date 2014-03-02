@@ -1,0 +1,9 @@
+<table class="requirement">
+	<tr>
+		<td><strong>Config Directory</strong><br/><code><?php echo $this->escape($this->config('configdir')) ?></code></td>
+		<td <?php echo ( $this->configdir_ok ) ? 'class="ok"' : 'class="notok"' ?>><?php echo ( $this->configdir_ok ) ? 'Writeable' : 'Not Writeable' ?></td>
+	</tr>
+</table>
+<?php if ( $this->ok ): ?>
+	<input type="button" value="Next Step" onClick="location.href='<?php echo $this->url(array('action'=>'index2')) ?>'" />
+<?php endif; ?>
