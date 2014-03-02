@@ -35,7 +35,7 @@ $mvc->config->namespace='gazel';
 $mvc->config->adminpath='admin';
 $mvc->config->configfile=$applicationdir.DIRECTORY_SEPARATOR.'configs'.DIRECTORY_SEPARATOR.'setting.xml';
 
-if ( $_SERVER['SERVER_ADDR']=='127.0.0.1' ) {
+if ( $_SERVER['SERVER_ADDR']=='127.0.0.1' || $_SERVER['SERVER_ADDR']=='::1' ) {
 	$mvc->config->debug=true;
 } else {
 	$mvc->config->debug=false;
